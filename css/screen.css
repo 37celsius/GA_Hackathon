@@ -54,6 +54,25 @@ html {
   line-height: 1.5em; }
 
 /** TYPOMATIC- https://github.com/andrejmlinarevic/typomatic **/
+/* FONT-FACE */
+@font-face {
+  font-family: 'source_sans_problack';
+  src: url("../fonts/SourceSansPro-Black-webfont.eot");
+  src: url("../fonts/SourceSansPro-Black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Black-webfont.woff2") format("woff2"), url("../fonts/SourceSansPro-Black-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Black-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Black-webfont.svg#source_sans_problack") format("svg");
+  font-weight: 900;
+  font-style: normal; }
+@font-face {
+  font-family: 'source_sans_probold';
+  src: url("../fonts/SourceSansPro-Bold-webfont.eot");
+  src: url("../fonts/SourceSansPro-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Bold-webfont.woff2") format("woff2"), url("../fonts/SourceSansPro-Bold-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Bold-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Bold-webfont.svg#source_sans_probold") format("svg");
+  font-weight: 700;
+  font-style: normal; }
+@font-face {
+  font-family: 'source_sans_proregular';
+  src: url("../fonts/SourceSansPro-Regular-webfont.eot");
+  src: url("../fonts/SourceSansPro-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/SourceSansPro-Regular-webfont.woff2") format("woff2"), url("../fonts/SourceSansPro-Regular-webfont.woff") format("woff"), url("../fonts/SourceSansPro-Regular-webfont.ttf") format("truetype"), url("../fonts/SourceSansPro-Regular-webfont.svg#source_sans_proregular") format("svg");
+  font-weight: 400;
+  font-style: normal; }
 /* Typography Setting */
 /* Typography Variables */
 /* Typography Base */
@@ -145,10 +164,22 @@ h1 {
   line-height: 64px;
   line-height: 3.2rem; }
 
-h1, h2, h3, h4, h5 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+h1, h2, h3 {
+  font-family: "source_sans_problack", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0;
   font-weight: 900;
+  margin-bottom: 32px;
+  margin-bottom: 1.6rem;
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -webkit-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig"; }
+
+h4, h5 {
+  font-family: "source_sans_probold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 0;
+  font-weight: 700;
   margin-bottom: 32px;
   margin-bottom: 1.6rem;
   -moz-font-feature-settings: "liga=1, dlig=1";

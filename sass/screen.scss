@@ -9,14 +9,56 @@
 
 /** TYPOMATIC- https://github.com/andrejmlinarevic/typomatic **/
 
+/* FONT-FACE */
+@font-face {
+    font-family: 'source_sans_problack';
+    src: url('../fonts/SourceSansPro-Black-webfont.eot');
+    src: url('../fonts/SourceSansPro-Black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SourceSansPro-Black-webfont.woff2') format('woff2'),
+         url('../fonts/SourceSansPro-Black-webfont.woff') format('woff'),
+         url('../fonts/SourceSansPro-Black-webfont.ttf') format('truetype'),
+         url('../fonts/SourceSansPro-Black-webfont.svg#source_sans_problack') format('svg');
+    font-weight: 900;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_probold';
+    src: url('../fonts/SourceSansPro-Bold-webfont.eot');
+    src: url('../fonts/SourceSansPro-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SourceSansPro-Bold-webfont.woff2') format('woff2'),
+         url('../fonts/SourceSansPro-Bold-webfont.woff') format('woff'),
+         url('../fonts/SourceSansPro-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/SourceSansPro-Bold-webfont.svg#source_sans_probold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('../fonts/SourceSansPro-Regular-webfont.eot');
+    src: url('../fonts/SourceSansPro-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SourceSansPro-Regular-webfont.woff2') format('woff2'),
+         url('../fonts/SourceSansPro-Regular-webfont.woff') format('woff'),
+         url('../fonts/SourceSansPro-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/SourceSansPro-Regular-webfont.svg#source_sans_proregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
 /* Typography Setting */
 $base-font-size: 20px;
 $base-line-height: 32px;
 $rhythm-unit: "rem";
 $rhytm-with-px-fallback: false;
 
-$base-font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-$alt-font-family: Georgia, Times, serif; 
+$base-font-family: Georgia, Times, serif; 
+$alt-font-family-black: "source_sans_problack","Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$alt-font-family-bold: "source_sans_probold","Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$alt-font-family-regular: "source_sans_proregular","Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;    
 
 /* Typography Variables */
 $type-prefix: "t-";
@@ -69,7 +111,7 @@ body {
     padding: 0 5rem 0 5rem;
     margin: 0 auto;
     color: #333;
-    font-family: $alt-font-family;
+    font-family: $base-font-family;
 }
 header {
     @include margin-leader(4);
@@ -156,10 +198,18 @@ footer {
     font-feature-settings: "liga", "dlig";
 }
 
-#{h1, h2, h3, h4, h5} {
-    font-family: $base-font-family;
+#{h1, h2, h3} {
+    font-family: $alt-font-family-black;
     margin-top: 0;
     @include type-weight(black);
+    @include margin-trailer(1);
+    @include type-ligatures;
+}
+
+#{h4, h5} {
+    font-family: $alt-font-family-bold;
+    margin-top: 0;
+    @include type-weight(bold);
     @include margin-trailer(1);
     @include type-ligatures;
 }
@@ -185,7 +235,7 @@ p {
     @include word-break(break-word);
     @include hyphens(auto);
     @include type-ligatures;
-    font-family: $alt-font-family;
+    font-family: $base-font-family;
 }
 
 small {
