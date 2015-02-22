@@ -1,0 +1,207 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass";
+@import "compass/reset";
+@include establish-baseline;
+
+/** TYPOMATIC- https://github.com/andrejmlinarevic/typomatic **/
+
+/* Typography Setting */
+$base-font-size: 20px;
+$base-line-height: 32px;
+$rhythm-unit: "rem";
+$rhytm-with-px-fallback: false;
+
+$base-font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+$alt-font-family: Georgia, Times, serif; 
+
+/* Typography Variables */
+$type-prefix: "t-";
+$type-scale: (
+	tiny: (
+		font-size: 13px,
+		base-lines: 0.5
+	),
+	small: (
+		font-size: 16px,
+		base-lines: 0.75
+	),
+	base: (
+		font-size: $base-font-size,
+		base-lines: 1
+	),
+	medium: (
+		font-size: 25px,
+		base-lines: 1
+	),
+	large: (
+		font-size: 31px,
+		base-lines: 1
+	),
+	xlarge: (
+		font-size: 39px,
+		base-lines: 1.5
+	),
+	xxlarge: (
+		font-size: 49px,
+		base-lines: 2
+	)
+);
+
+$type-weight: (
+	thin: 200,
+	light: 300,
+	regular: 400,
+	bold: 700,
+	black: 900
+);
+
+
+/* Typography Base */
+
+body {
+    background: #f5f5f5;
+    min-width: 40rem;
+    max-width: 60rem;
+    padding: 0 5rem 0 5rem;
+    margin: 0 auto;
+    color: #333;
+    font-family: $alt-font-family;
+}
+header {
+    @include margin-leader(4);
+    @include margin-trailer(4);
+    @include apply-side-rhythm-border(top, 6px, 1);
+    @include apply-side-rhythm-border(bottom, 6px, 1);
+    border-color: #FF3149;
+
+    & > h1 {
+        color: #FF3149;
+    } 
+}
+main {
+    @include clearfix;
+    .left {
+        float: left;
+        width: 60%;
+    }
+    .right {
+        float: right;
+        width: 35%;
+    }
+}
+footer {
+    @include apply-side-rhythm-border(top, 2px, 1);
+    @include margin-leader(4);
+    @include margin-trailer(4);
+    border-color: darken(white, 10%);
+}
+
+/* Typography Mixins */
+@mixin type-scale($scale, $map: $type-scale) {
+  $font-size: map-fetch($map, $scale font-size);
+  $base-lines: map-fetch($map, $scale base-lines);
+  @include adjust-font-size-to($font-size, $base-lines);
+}
+
+/* Typography Map */
+@function map-fetch($map, $keys) {
+	$key: nth($keys, 1);
+	$length: length($keys);
+	$value: map-get($map, $key);
+	@if ($length > 1) {
+		$rest: ();
+		@for $i from 2 through $length {
+			$rest: append($rest, nth($keys, $i))
+		}
+		@return map-fetch($value, $rest)
+	} @else {
+		@return $value;
+	}
+}
+
+@each $scale in map-keys($type-scale) {
+    %#{$type-prefix}#{$scale} {
+        @include adjust-font-size-to (
+            map-fetch($type-scale, $scale font-size),   
+            map-fetch($type-scale, $scale base-lines)
+        );
+    }
+}
+
+@mixin type-scale($scale, $extend: true, $map: $type-scale) {
+    @if $extend {
+        @extend %#{$type-prefix}#{$scale};
+    }
+    @else {
+        @include adjust-font-size-to(
+            map-fetch($map, $scale font-size),
+            map-fetch($map, $scale base-lines)
+        );
+    }
+}
+
+@mixin type-weight($weight) {
+    font-weight: map-get($type-weight, $weight);
+}
+
+@mixin type-ligatures() {
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -ms-font-feature-settings: "liga", "dlig";
+    -webkit-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
+}
+
+#{h1, h2, h3, h4, h5} {
+    font-family: $base-font-family;
+    margin-top: 0;
+    @include type-weight(black);
+    @include margin-trailer(1);
+    @include type-ligatures;
+}
+
+h1 {
+    @include type-scale(xxlarge);
+}
+h2 {
+    @include type-scale(xlarge);
+}
+h3 {
+    @include type-scale(large);
+}
+h4 {
+    @include type-scale(medium);
+}
+h5 {
+    @include type-scale(base);
+}
+
+p {
+    @include margin-trailer(1);
+    @include word-break(break-word);
+    @include hyphens(auto);
+    @include type-ligatures;
+    font-family: $alt-font-family;
+}
+
+small {
+    @include type-scale(small);
+}
+
+a {
+    color: #FF3149;
+    text-decoration: none;
+    &:hover, &:focus {
+        color: #2AEFFF;
+    }
+    &:focus {
+        outline: 0;
+    }
+    &:active {
+        color: darken(#2AEFFF, 10%);
+    }
+}
