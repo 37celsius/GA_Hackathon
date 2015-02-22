@@ -96,12 +96,12 @@ footer {
   border-top-width: 2px;
   border-top-width: 0.1rem;
   border-top-style: solid;
-  padding-top: 30px;
-  padding-top: 1.5rem;
-  margin-top: 128px;
-  margin-top: 6.4rem;
-  margin-bottom: 128px;
-  margin-bottom: 6.4rem;
+  padding-top: 28px;
+  padding-top: 1.4rem;
+  margin-top: 120px;
+  margin-top: 6rem;
+  margin-bottom: 120px;
+  margin-bottom: 6rem;
   border-color: #e6e6e6; }
 
 /* Typography Mixins */
@@ -109,45 +109,43 @@ footer {
 small {
   font-size: 16px;
   font-size: 0.8rem;
-  line-height: 24px;
-  line-height: 1.2rem; }
+  line-height: 23px;
+  line-height: 1.125rem; }
 
 h5 {
   font-size: 20px;
   font-size: 1rem;
-  line-height: 32px;
-  line-height: 1.6rem; }
+  line-height: 30px;
+  line-height: 1.5rem; }
 
 h4 {
   font-size: 25px;
   font-size: 1.25rem;
-  line-height: 32px;
-  line-height: 1.6rem; }
+  line-height: 30px;
+  line-height: 1.5rem; }
 
-h3 {
+h3, a, button {
   font-size: 31px;
   font-size: 1.55rem;
-  line-height: 32px;
-  line-height: 1.6rem; }
+  line-height: 30px;
+  line-height: 1.5rem; }
 
 h2 {
   font-size: 39px;
   font-size: 1.95rem;
-  line-height: 48px;
-  line-height: 2.4rem; }
+  line-height: 45px;
+  line-height: 2.25rem; }
 
 h1 {
   font-size: 49px;
   font-size: 2.45rem;
-  line-height: 64px;
-  line-height: 3.2rem; }
+  line-height: 60px;
+  line-height: 3rem; }
 
 h1, h2, h3 {
   font-family: "source_sans_problack", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0;
   font-weight: 900;
-  margin-bottom: 32px;
-  margin-bottom: 1.6rem;
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
@@ -158,8 +156,8 @@ h4, h5 {
   font-family: "source_sans_probold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 0;
   font-weight: 700;
-  margin-bottom: 32px;
-  margin-bottom: 1.6rem;
+  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
@@ -167,8 +165,8 @@ h4, h5 {
   font-feature-settings: "liga", "dlig"; }
 
 p {
-  margin-bottom: 32px;
-  margin-bottom: 1.6rem;
+  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
   word-break: break-word;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
@@ -182,20 +180,27 @@ p {
   font-family: Georgia, Times, serif; }
 
 a {
-  color: #FF3149;
-  text-decoration: none; }
+  font-family: "source_sans_probold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #F9681E;
+  text-decoration: none;
+  text-transform: uppercase; }
   a:hover, a:focus {
-    color: #2AEFFF; }
+    color: #fafafa; }
   a:focus {
     outline: 0; }
   a:active {
-    color: #00e4f6; }
+    color: #de4f06; }
 
 /* STYLE */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
 
 html {
   min-height: 100%;
@@ -216,7 +221,7 @@ html {
 
 .topHeader {
   width: 100%;
-  height: 400px;
+  height: 300px;
   margin: auto;
   position: relative;
   overflow: hidden; }
@@ -227,10 +232,10 @@ html {
   position: absolute;
   top: 60px;
   right: 0;
-  bottom: 120px;
+  bottom: -20px;
   left: 0;
   border-style: solid;
-  border-width: 150px 600px 0 0px;
+  border-width: 130px 600px 0 0px;
   border-color: transparent #fafafa;
   border-bottom: 0; }
 
@@ -245,3 +250,29 @@ html {
 
 .profile img {
   width: 50%; }
+
+button {
+  color: #fafafa;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  margin: 0;
+  text-transform: uppercase;
+  outline: none;
+  cursor: pointer; }
+
+.mobile {
+  display: none; }
+
+.mobile ul {
+  text-align: center;
+  background-color: #222;
+  padding: 10px 0; }
+
+.mobile ul li {
+  padding: 10px; }
+
+article {
+  background: #fafafa;
+  padding: 30px; }

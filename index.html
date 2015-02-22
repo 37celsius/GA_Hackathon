@@ -35,9 +35,47 @@
 				<img src="images/photo_profile@2x.png" alt="Beta Ngadiman">
 				<figcaption>
 					<h1>Beta Ngadiman</h1>
+					<h4>Digital Designer &amp; Illustrator</h4>
 				</figcaption>
 			</figure>
 		</header>
+		<button class="mobileMenu">Menu</button>
+		<nav class="mobile">
+			<ul>
+				<li>
+					<a href="#About">About</a>
+				</li>
+				<li>
+					<a href="#Skills">Skills</a>
+				</li>
+				<li>					
+					<a href="#Follow">Follow Me</a>
+				</li>
+			</ul>
+		</nav>
+		<article id="About">
+			<h3>About</h3>
+			<p>Solutions focused Digital Designer with nearly 7 years experience working with private organisations, government agencies, educational institutions, marketing and advertising companies, as well as entertainment and TV broadcasting.</p>
+		</article>
+		<article id="Skills">
+			<h3>Skills</h3>
+			<p>Solutions focused Digital Designer with nearly 7 years experience working with private organisations, government agencies, educational institutions, marketing and advertising companies, as well as entertainment and TV broadcasting.</p>
+		</article>
+		<article id="Follow">
+			<h3>Follow me</h3>
+			<p>Solutions focused Digital Designer with nearly 7 years experience working with private organisations, government agencies, educational institutions, marketing and advertising companies, as well as entertainment and TV broadcasting.</p>
+		</article>
 	</div>
+
+<script>
+	$( ".mobileMenu" ).click(function() {
+	  $( ".mobile" ).slideToggle( "slow" );
+	});
+
+	$(".mobile ul").on("click", "li", function () {
+       $(".mobile").slideToggle();
+    });
+</script>
+
 </body>
 </html>
