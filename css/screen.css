@@ -53,6 +53,7 @@ html {
   font-size: 100%;
   line-height: 1.5em; }
 
+/** GENERAL **/
 /** TYPOMATIC- https://github.com/andrejmlinarevic/typomatic **/
 /* FONT-FACE */
 @font-face {
@@ -92,21 +93,9 @@ main {
     float: right;
     width: 35%; }
 
-footer {
-  border-top-width: 2px;
-  border-top-width: 0.1rem;
-  border-top-style: solid;
-  padding-top: 28px;
-  padding-top: 1.4rem;
-  margin-top: 120px;
-  margin-top: 6rem;
-  margin-bottom: 120px;
-  margin-bottom: 6rem;
-  border-color: #e6e6e6; }
-
 /* Typography Mixins */
 /* Typography Map */
-small {
+small, footer, footer a {
   font-size: 16px;
   font-size: 0.8rem;
   line-height: 23px;
@@ -183,7 +172,11 @@ a {
   font-family: "source_sans_probold", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #F9681E;
   text-decoration: none;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  -moz-transition: all 0.25s ease-in;
+  -o-transition: all 0.25s ease-in;
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in; }
   a:hover, a:focus {
     color: #fafafa; }
   a:focus {
@@ -212,7 +205,8 @@ html {
 
 .container {
   width: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
 
 .logo {
   width: 100px;
@@ -275,4 +269,47 @@ button {
 
 article {
   background: #fafafa;
-  padding: 30px; }
+  padding: 30px 20px 10px;
+  border-bottom: 1px dotted #ccc;
+  overflow: hidden; }
+
+#Skills ul li {
+  display: inline-block;
+  background: #dedede;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+#Follow {
+  border-bottom: 2px solid #adadad; }
+
+#Follow ul {
+  text-align: center; }
+
+#Follow ul li a {
+  display: inline-block;
+  float: left;
+  width: 20%;
+  border: 1px solid #F9681E;
+  margin-bottom: 10px;
+  line-height: 2; }
+
+#Skills ul li:first-child, #Follow ul li:first-child {
+  margin-top: 20px; }
+
+#Follow ul li a:hover {
+  background: #F9681E;
+  color: #fafafa; }
+
+footer {
+  color: #fafafa;
+  font-family: "source_sans_proregular", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-top: 1px solid #fafafa;
+  margin-top: 30px;
+  text-align: center; }
+
+footer a {
+  font-family: "source_sans_proregular", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: inherit; }
